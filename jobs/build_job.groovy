@@ -73,10 +73,6 @@ parameters {
 }
 
 
-
-
-
-
 job('Disable_Autoscaling') {
   description('Job for Disable Autoscaling')
   disabled()
@@ -378,7 +374,28 @@ job('Run_Artifact_Job') {
 }
 
 
+pipelineJob('Pipeline_Deploy') {
 
+disabled()
+
+  def repo = 'https://github.com/OpsTree/cicd-demo.git'
+
+  
+  description("Pipeline for $repo")
+
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote { url(repo) }
+          branches('*/master')
+          scriptPath('pipeline_data')
+          extensions { }
+        }
+      }
+    }
+  }
+}
 
 
 
