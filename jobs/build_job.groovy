@@ -75,7 +75,6 @@ parameters {
 
 job('Disable_Autoscaling') {
   description('Job for Disable Autoscaling')
-  disabled()
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -88,7 +87,7 @@ job('Disable_Autoscaling') {
 
 job('Pullout_AzB_Instances') {
   description('Pullout AzB Instances from ELB')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -102,7 +101,7 @@ job('Pullout_AzB_Instances') {
 
 job('Test_AzB_Environment') {
   description('Connecting with testing ELB')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -115,7 +114,7 @@ job('Test_AzB_Environment') {
 
 job('Rollback_AzB_Instances') {
   description('Rollback AzB on Instances')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -128,7 +127,7 @@ job('Rollback_AzB_Instances') {
 
 job('Join_AzB_Instances') {
   description('Remove from testing ELB Join AzB Instance with ELB')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -141,7 +140,7 @@ job('Join_AzB_Instances') {
 
 job('Pullout_AzA_Instances') {
   description('Pullout AzA Instances from ELB')
-  disabled()
+ 
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -153,8 +152,7 @@ job('Pullout_AzA_Instances') {
 }
 
 job('Test_AzA_Environment') {
-  description('Connecting with testing ELB and Test AzA Environment')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -167,7 +165,7 @@ job('Test_AzA_Environment') {
 
 job('Manual_Rollback') {
   description('Manual Rollback Environment AzA/AzB')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -180,7 +178,7 @@ job('Manual_Rollback') {
 
 job('Join_AzA_Environment') {
   description('Remove from testing ELB and Join AzA Environment')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -193,7 +191,7 @@ job('Join_AzA_Environment') {
 
 job('Test_Whole_Environment') {
   description('Testing for whole Environment')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -206,7 +204,6 @@ job('Test_Whole_Environment') {
 
 job('Run_Artifact_Job') {
   description('Run artifact job')
-  disabled()
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -219,7 +216,7 @@ job('Run_Artifact_Job') {
 
 job('Enable_Autoscaling') {
   description('Enable autoscaling')
-  disabled()
+
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -232,7 +229,7 @@ job('Enable_Autoscaling') {
 
 job('Disable_Autoscaling') {
   description('Job for Disable Autoscaling')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -245,7 +242,7 @@ job('Disable_Autoscaling') {
 
 job('Pullout_AzB_Instances') {
   description('Pullout AzB Instances from ELB')
-  disabled()
+ 
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -258,7 +255,7 @@ job('Pullout_AzB_Instances') {
 
 job('Test_AzB_Environment') {
   description('Connecting with testing ELB')
-  disabled()
+ 
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -271,7 +268,7 @@ job('Test_AzB_Environment') {
 
 job('Rollback_AzB_Instances') {
   description('Rollback AzB on Instances')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -284,7 +281,7 @@ job('Rollback_AzB_Instances') {
 
 job('Join_AzB_Instances') {
   description('Remove from testing ELB Join AzB Instance with ELB')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -297,7 +294,7 @@ job('Join_AzB_Instances') {
 
 job('Pullout_AzA_Instances') {
   description('Pullout AzA Instances from ELB')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -310,7 +307,7 @@ job('Pullout_AzA_Instances') {
 
 job('Test_AzA_Environment') {
   description('Connecting with testing ELB and Test AzA Environment')
-  disabled()
+
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -323,7 +320,7 @@ job('Test_AzA_Environment') {
 
 job('Manual_Rollback') {
   description('Manual Rollback Environment AzA/AzB')
-  disabled()
+ 
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -336,7 +333,7 @@ job('Manual_Rollback') {
 
 job('Join_AzA_Environment') {
   description('Remove from testing ELB and Join AzA Environment')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -349,7 +346,7 @@ job('Join_AzA_Environment') {
 
 job('Test_Whole_Environment') {
   description('Testing for whole Environment')
-  disabled()
+  
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -362,7 +359,7 @@ job('Test_Whole_Environment') {
 
 job('Run_Artifact_Job') {
   description('Run artifact job')
-  disabled()
+ 
   logRotator {
     	daysToKeep(60)
     	numToKeep(20)
@@ -375,9 +372,6 @@ job('Run_Artifact_Job') {
 
 
 pipelineJob('Pipeline_Deploy') {
-
-disabled()
-
   def repo = 'https://github.com/OpsTree/cicd-demo.git'
 
   
