@@ -1,2 +1,2 @@
 # cicd-demo
-I'm a showcase of CI/CD
+I'm a showcase of CI/CD.
