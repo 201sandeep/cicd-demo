@@ -388,7 +388,7 @@ nestedView('New-Rolling') {
    views {
        nestedView('Rolling-Prod') {
            views {
-           listView('Rolling_BigParser_Frontend') {
+           listView('Rolling_Project_Frontend') {
                 jobs {
                       name("prod_FE_Deploy")
                 }
@@ -402,7 +402,7 @@ nestedView('New-Rolling') {
        
             }
              
-       listView('Rolling_BigParser_Backend') {
+       listView('Rolling_Project_Backend') {
                 jobs {
                       names("prod_BE_API_Deploy","prod_BE_connectors_Deploy","prod_BE_crud_Deploy","prod_BE_jobsculders_Deploy")
                 }
@@ -418,7 +418,7 @@ nestedView('New-Rolling') {
              
              
              
-        listView('Rolling_BigParser_ELB_Autoscaling') {
+        listView('Rolling_Project_ELB_Autoscaling') {
                 jobs {
                   names("Disable_Autoscaling","Pullout_AzB_Instances","Test_AzB_Environment","Rollback_AzB_Instances","Join_AzB_Instances","Pullout_AzA_Instances","Test_AzA_Environment","Manual_Rollback","Join_AzA_Environment","Test_Whole_Environment","Run_Artifact_Job","Enable_Autoscaling","Disable_Autoscaling","Pullout_AzB_Instances","Test_AzB_Environment","Rollback_AzB_Instances","Join_AzB_Instances","Pullout_AzA_Instances","Test_AzA_Environment","Manual_Rollback","Join_AzA_Environment","Test_Whole_Environment","Run_Artifact_Job","Pipeline1","Rolling_Accept_reject")
                 }
