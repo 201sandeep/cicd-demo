@@ -4,7 +4,7 @@ import hudson.security.*
 
 def instance = Jenkins.getInstance()
 def jenkins_username = System.getenv('JENKINS_USERNAME') ?: "admin"
-def jenkins_password = System.getenv('JENKINS_PASSWORD') ?: "alok"
+def jenkins_password = System.getenv('JENKINS_PASSWORD') ?: "opstree"
 
 def hudsonRealm = new HudsonPrivateSecurityRealm(false)
 hudsonRealm.createAccount(jenkins_username,jenkins_password)
