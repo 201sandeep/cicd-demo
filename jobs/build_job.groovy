@@ -361,7 +361,99 @@ job('Run_Artifact_Job') {
 }
 
 
-pipelineJob('Pipeline_Deploy') {
+job('Spring3HibernateApp_Code_Stability') {
+    logRotator(-1, 10)
+    scm {
+    	git {
+  	remote {
+    	url("https://github.com/OpsTree/ContinuousIntegration.git")
+  	}
+  	branch("*/master")
+ 	}
+     }
+    steps {
+      
+      maven {
+
+                     rootPOM('Spring3HibernateApp/pom.xml')
+                     goals('clean compile')
+                     mavenInstallation('mvn')
+
+
+}   
+    }
+    
+}
+
+
+job('Spring3HibernateApp_Code_Quality') {
+    logRotator(-1, 10)
+    
+  scm {
+    	git {
+  	remote {
+    	url("https://github.com/OpsTree/ContinuousIntegration.git")
+  	}
+  	branch("*/master")
+ 	}
+     }
+
+steps {
+       
+        maven {
+
+                     rootPOM('Spring3HibernateApp/pom.xml')
+                     goals('pmd:pmd checkstyle:checkstyle')
+                     mavenInstallation('mvn')
+
+
+}
+  
+      publishers {
+        checkstyle('**/checkstyle-result.xml')
+    }
+    }
+    
+}
+
+
+
+
+
+job('Spring3HibernateApp_Code_Coverage') {
+    logRotator(-1, 10)
+  scm {
+    	git {
+  	remote {
+    	url("https://github.com/OpsTree/ContinuousIntegration.git")
+  	}
+  	branch("*/master")
+ 	}
+     }
+
+    steps {
+             maven {
+
+                     rootPOM('Spring3HibernateApp/pom.xml')
+                     goals('cobertura:cobertura')
+                     mavenInstallation('mvn')
+
+}
+      publishers {
+        
+         cobertura('**/target/site/cobertura/coverage.xml') {
+            failNoReports(true)
+            sourceEncoding('ASCII')
+         }
+        
+        
+     }
+    }
+    
+}
+
+
+pipelineJob('Rolling_Pipeline_Deploy') {
   def repo = 'https://github.com/OpsTree/cicd-demo.git'
 
   
@@ -380,6 +472,30 @@ pipelineJob('Pipeline_Deploy') {
     }
   }
 }
+
+
+pipelineJob('CI_Pipeline_Deploy') {
+  def repo = 'https://github.com/OpsTree/cicd-demo.git'
+
+
+  description("Pipeline for $repo")
+
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote { url(repo) }
+          branches('*/master')
+          scriptPath('CI_pipeline_data')
+          extensions { }
+        }
+      }
+    }
+  }
+}
+
+
+
 
 
 
@@ -436,3 +552,32 @@ nestedView('New-Rolling') {
  }
 }
 
+listView('Spring3HibernateApp_CI') {
+                jobs {
+                      names("Spring3HibernateApp_Code_Stability","Spring3HibernateApp_Code_Quality","Spring3HibernateApp_Code_Coverage")
+                }
+                columns {
+               status()
+               weather()
+               name()
+               lastSuccess()
+               lastFailure()
+       }
+
+            }
+
+
+
+listView('Pipeline') {
+                jobs {
+                      names("Rolling_Pipeline_Deploy","CI_Pipeline_Deploy")
+                }
+                columns {
+               status()
+               weather()
+               name()
+               lastSuccess()
+               lastFailure()
+       }
+       
+            }
