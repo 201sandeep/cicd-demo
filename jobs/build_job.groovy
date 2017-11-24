@@ -1,73 +1,63 @@
 job('prod_FE_Deploy') {
-  description('I\'ll do continuous deployment of all componets availble in Bigparser_Frontend.')
+  description('I\'ll do continuous deployment of all componets availble in Project_Frontend.')
 parameters {
      choiceParam('AZ', ['a', 'b',  ],  )
       stringParam('RELEASE_ID', 'Auto')
 }
   steps {
     shell(
-
-    //'sh /var/lib/jenkins/rolling-test-scripts/frontend/fe.sh ${RELEASE_ID}'
     'echo $AZ'
     )}
 }
 
 
 job('prod_BE_API_Deploy') {
-  description('I\'ll do continuous deployment of all componets availble in Bigparser_Backendend.')
+  description('I\'ll do continuous deployment of all componets availble in Project_Backendend.')
 parameters {
      choiceParam('AZ', ['a', 'b',  ],  )
       stringParam('RELEASE_ID', 'Auto')
 }
   steps {
     shell(
-
-    //'sh /var/lib/jenkins/rolling-test-scripts/backend/api.sh ${RELEASE_ID}'
     'echo $AZ'
     )}
 }
 
 
 job('prod_BE_connectors_Deploy') {
-  description('I\'ll do continuous deployment of all componets availble in Bigparser_Backend.')
+  description('I\'ll do continuous deployment of all componets availble in Project_Backend.')
 parameters {
      choiceParam('AZ', ['a', 'b',  ],  )
       stringParam('RELEASE_ID', 'Auto')
 }
   steps {
     shell(
-
-     //'sh /var/lib/jenkins/rolling-test-scripts/backend/connector.sh ${RELEASE_ID}'
     'echo $AZ'
     )}
 }
 
 
 job('prod_BE_crud_Deploy') {
-  description('I\'ll do continuous deployment of all componets availble in Bigparser_Backend.')
+  description('I\'ll do continuous deployment of all componets availble in Project_Backend.')
 parameters {
      choiceParam('AZ', ['a', 'b',  ],  )
       stringParam('RELEASE_ID', 'Auto')
 }
   steps {
     shell(
-
-    //'sh /var/lib/jenkins/rolling-test-scripts/backend/crud.sh ${RELEASE_ID}'
     'echo $AZ'
     )}
 }
 
 
 job('prod_BE_jobsculders_Deploy') {
-  description('I\'ll do continuous deployment of all componets availble in Bigparser_backend.')
+  description('I\'ll do continuous deployment of all componets availble in Project_backend.')
 parameters {
      choiceParam('AZ', ['a', 'b',  ],  )
       stringParam('RELEASE_ID', 'Auto')
 }
   steps {
     shell(
-
-    //'sh /var/lib/jenkins/rolling-test-scripts/backend/job.sh ${RELEASE_ID}'
      'echo $AZ'
     )}
 }
